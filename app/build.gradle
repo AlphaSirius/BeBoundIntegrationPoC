@@ -1,0 +1,47 @@
+apply plugin: 'com.android.application'
+apply plugin: 'be-app'
+
+beApp {
+    name = "wow"
+    appPackage = "com.indusos.plusi"
+    appKey = "KYIOGDqvFEcNDv7g3vnVX1IXaJPTg025yV+85OMtIBPZCaKFXg=="
+    appId = 401
+}
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.3"
+    defaultConfig {
+        applicationId "com.indusos.plusi"
+        minSdkVersion 19
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        buildConfigField "String", "BEAPP_MANIFEST", "\"indus_v1\""
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    testCompile 'junit:junit:4.12'
+
+    // Be-Bound SDK. N4B
+    compile 'com.be-bound:sdk:1.0.4'
+    compile 'org.greenrobot:eventbus:3.0.0'
+    // https://mvnrepository.com/artifact/org.jetbrains/annotations
+    compile group: 'org.jetbrains', name: 'annotations', version: '13.0'
+
+    compile 'com.squareup.okhttp3:okhttp:3.4.1'
+    compile 'com.squareup.okhttp:okhttp-urlconnection:2.+'
+}

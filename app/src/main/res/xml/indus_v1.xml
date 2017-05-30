@@ -1,0 +1,34 @@
+<?xml version="1.0" standalone="yes"?>
+<be-app name="wow" apk="com.indusos.plusi" version="1" protocol="1">
+    <server_operations>
+        <operation name="fetchNews">
+            <request>
+                <param name="language" min_len="0" max_len="2" type="string"/>
+                <param name="pageLimit" min="0" type="int"/>
+                <param name="category" min_len="0" max_len="20" type="string"/>
+            </request>
+            <response>
+			 <param name="timestamp" min="0" type="int"/>
+             <param name="newsResponse" type="array" min="0">
+                    <param name="id" type="string"/>
+                    <param name="language" type="string"/>
+                    <param name="category" type="string"/>
+                    <param name="summary" type="string"/>
+                    <param name="title" type="string"/>
+                    <param name="thumbnail" type="string" optional="true"/>
+					<param name="topImgUrl" type="string" optional="true"/>
+                    <param name="topVideoUrl" type="string" optional="true"/>
+					<param name="url" type="string"/>
+                    <param name="compressedImgUrl" type="string" optional="true"/>
+					<param name="createTime" min="0" type="int"/>
+                    <param name="publishTime" min="0" type="int"/>
+					<param name="publication" type="string" optional="true"/>
+					<param name="tagList" type="string" optional="true"/>
+					<param name="topTags" type="array" min="0">
+					     <param name="tag" type="string"/>
+					</param>
+                </param>
+            </response>
+        </operation>
+</server_operations>
+		</be-app>
